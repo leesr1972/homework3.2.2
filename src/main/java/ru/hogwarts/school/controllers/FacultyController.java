@@ -50,10 +50,10 @@ public class FacultyController {
         return ResponseEntity.ok(foundFaculty);
     }
 
-    @GetMapping("{color}")
+    @GetMapping("/color/{color}")
     public ResponseEntity<Collection<Faculty>> getFacultiesByColor(@PathVariable String color) {
         List<Faculty> foundFaculties = facultyService.getFacultiesByColor(color);
-        if (foundFaculties == null) {
+        if (foundFaculties.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(foundFaculties);

@@ -41,15 +41,8 @@ public class StudentService {
         return null;
     }
 
-    public List<Student> getStudentsByAge(int age) {
-//        return students.values().stream().
-//                filter(e -> e.getAge() == age).collect(Collectors.toList());
-        List<Student> studentList = new ArrayList<>();
-        for (long i = 0; i < students.size(); i++) {
-            if (students.get(i).getAge() == age) {
-                studentList.add(students.get(i));
-            }
-        }
-        return studentList;
+    public List<Student> getStudentsByAge(Integer age) {
+        return students.values().stream().
+                filter(e -> e.getAge() == age).toList();
     }
 }
